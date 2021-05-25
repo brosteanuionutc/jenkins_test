@@ -20,7 +20,7 @@ pipeline {
         stage('Adding text to the website..') {
             steps {
                 sh 'sudo chmod 777 /var/www/html/index.html'
-                sh 'echo Sper ca rulezi > /var/www/html/index.html'
+                sh 'echo Sper ca mergi bine > /var/www/html/index.html'
                 sh 'echo Text added! Moving forward'
             }
         }
