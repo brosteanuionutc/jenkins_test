@@ -1,34 +1,20 @@
 pipeline {
     agent any
- 
+
     stages {
-        stage('Installing apache2 package..') {
+        stage('Build') {
             steps {
-                sh 'sudo apt-get install -y apache2'
-                sh 'echo Apache2 package installed! Moving forward'
+                echo 'Building..'
             }
         }
- 
-        stage('Setting apache2 to start at boot time..') {
+        stage('Test') {
             steps {
-                sh 'sudo systemctl enable apache2'
-                sh 'sudo systemctl start apache2'
-                sh 'echo The service has started! Moving forward'
+                echo 'Testing..'
             }
         }
- 
-        stage('Adding text to the website..') {
+        stage('Deploy') {
             steps {
-                sh 'sudo chmod 777 /var/www/html/index.html'
-                sh 'echo Sper ca mergi bine > /var/www/html/index.html'
-                sh 'echo Text added! Moving forward'
-            }
-        }
- 
-        stage('Veryfing the website..') {
-            steps {
-                sh 'curl 18.156.120.73:80'
-                sh 'echo If you see the head message, good job, it worked!'
+                echo 'Deploying....'
             }
         }
     }
